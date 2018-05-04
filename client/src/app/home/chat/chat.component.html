@@ -1,0 +1,4 @@
+<div class='messages' id='messageList'>
+  <app-message *ngFor="let msg of messages" [msg]="msg"></app-message>
+  <app-chat-input (onSend)="onSend($event)" (onStateChange)="onChange($event)" [stateMessages]="stateMessages"></app-chat-input>
+</div>

@@ -1,0 +1,13 @@
+<!-- placeholder="Write a message..." -->
+<form name="form" (ngSubmit)="f.form.valid && send()" #f="ngForm" novalidate>
+  <div *ngIf="stateMessage != null">{{stateMessage}}</div>
+  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !text.valid }">
+    <input type="text" class="form-control" name="text" [(ngModel)]="model.text" (ngModelChange)="updateInput($event)" #text="ngModel" required />
+    <div *ngIf="f.submitted && text.errors" class="help-block">
+      Text is required
+    </div>
+  </div>
+  <div class="form-group pull-right">
+    <button class="btn btn-primary">Send</button>
+  </div>
+</form>
